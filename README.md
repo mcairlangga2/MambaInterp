@@ -22,4 +22,4 @@ python ushape.py --model <hf-model> --datasets <"[list of dataset to be evaluate
 ```
 
 ## Customized Mamba
-In CustomizeMamba, I define a function to replace the original slow_forward. Make sure you uninstall the causal-conv1d and mamba-ssm; otherwise, they will not go to slow_forward.
+In CustomizeMamba, I implement a function that replaces the original slow_forward method in the FalconMambaMixer class. This approach allows us to intercept and analyze intermediate values during the forward pass without directly modifying the Hugging Face transformers package. Important: Before using this code, make sure to uninstall the CUDA-optimized packages causal-conv1d and mamba-ssm. Their presence will cause the model to use the optimized implementation path instead of the slow_forward method we're instrumenting. I chose this non-invasive approach rather than directly modifying the Hugging Face source code to preserve the integrity of the package and avoid potential compatibility issues.
