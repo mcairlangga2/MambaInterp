@@ -1,0 +1,19 @@
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Model caches and generated experiment artifacts
+.cache/
+models/
+results/*
+!results/.gitkeep
+
+# Editor and OS files
+.DS_Store
+.idea/
+.vscode/
